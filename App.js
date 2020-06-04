@@ -1,19 +1,32 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {Component} from 'react';
+import { Text, View} from 'react-native';
+import {data} from './data'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+export default class Apirest extends Component {
+ 
+constructor (props) {
+ super(props);
+ this.state={
+     data:data
+ }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+render() {
+  return (
+      <View style={{marginLeft: 56, marginTop: 15}}>
+          <Text style={{fontSize: 25}}>Comments</Text>
+        {
+            this.state.data.map(item => {
+            return (
+                <View style={{marginTop: 15,}}>
+                    <Text>Author - {item.author}</Text>
+                    <Text style={{marginTop: 5}}>Comment - {item.comment}</Text>
+                </View>
+                )
+            })
+        }
+        </View>
+  );
+  }
+ }
