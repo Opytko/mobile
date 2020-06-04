@@ -7,7 +7,8 @@ export default class Apirest extends Component {
 constructor (props) {
  super(props);
  this.state={
-     data:data
+     data:data,
+     comments: data[0].comments
  }
 }
 
@@ -17,9 +18,9 @@ render() {
       <View style={{marginLeft: 56, marginTop: 15}}>
           <Text style={{fontSize: 25}}>Comments</Text>
         {
-            this.state.data.map(item => {
+            this.state.comments.map(item => {
             return (
-                <View style={{marginTop: 15,}}>
+                <View style={{marginTop: 15}}>
                     <Text>Author - {item.author}</Text>
                     <Text style={{marginTop: 5}}>Comment - {item.comment}</Text>
                 </View>
